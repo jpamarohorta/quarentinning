@@ -1,0 +1,90 @@
+@mixin flex($flexnumber) {
+  width: #{$flexnumber};
+}
+
+.padding-left{
+  padding-left: 12px;
+
+  @include responsive(ipadPro){
+      padding-left: 8px;
+  }
+  @include responsive(iphonePlus) {
+      padding-left: 6px;
+  }
+}
+
+.padding-right{
+  padding-right: 12px;
+
+  @include responsive(ipadPro){
+      padding-right: 8px;
+  }
+  @include responsive(iphonePlus) {
+      padding-right: 6px;
+  }
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.row-max {
+  padding: 0 40px;
+  box-sizing: border-box;
+
+  @include responsive(ipadPro){
+    padding: 0 20px;
+  }
+  @include responsive(ipad) {
+    padding: 0 10px;
+  }
+  @include responsive(iphonePlus) {
+    padding: 0 0px;
+  }
+}
+
+.col {
+  @include flex($colValue);
+
+  box-sizing: border-box;
+
+  &.col-2{ 
+    @include flex($colValue * 2);
+  }
+  &.col-3 {
+    @include flex($colValue * 3);
+  }
+  &.col-4 {
+     @include flex($colValue * 4);
+  }
+  &.col-5 {
+    @include flex($colValue * 5);
+  }
+  &.col-6 {
+    @include flex($colValue * 6);
+  }
+  &.col-7 {
+    @include flex($colValue * 7);
+  }
+  &.col-8 {
+    @include flex($colValue * 8);
+  }
+  &.col-9 {
+    @include flex($colValue * 9);
+  }
+  &.col-10 {
+    @include flex($colValue * 10);
+  }
+  &.col-11 {
+    @include flex($colValue * 11);
+  }
+  &.col-12 {
+    @include flex($colValue * 12);
+  }
+}

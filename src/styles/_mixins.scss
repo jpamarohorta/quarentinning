@@ -1,0 +1,146 @@
+@mixin transition($duration) {
+  -webkit-transition: all #{$duration}ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -moz-transition:    all #{$duration}ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -ms-transition:     all #{$duration}ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -o-transition:      all #{$duration}ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+@mixin animatedelay($delay) {
+  animation-delay: #{$delay}s;
+  -webkit-animation-delay:  #{$delay}s;
+  -moz-animation-delay:  #{$delay}s;
+  -ms-animation-delay:  #{$delay}s;
+  -o-animation-delay:  #{$delay}s;
+}
+
+
+@mixin rounded($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -moz-transform:    rotate($deg);
+  -ms-transform:     rotate($deg);
+  -o-transform:      rotate($deg);
+}
+
+@mixin translate($move, $move2) {
+  transform: translate($move, $move2);
+  -webkit-transform: translate($move, $move2);
+  -moz-transform:    translate($move, $move2);
+  -ms-transform:     translate($move, $move2);
+  -o-transform:      translate($move, $move2);
+}
+
+@mixin responsive($width) {
+  @if $width == desktop {
+    @media only screen and (max-width: $desktop) { @content; }
+  }
+  @if $width == ipadLandscape {
+    @media only screen and (max-width: $ipadLandscape) { @content; }
+  }
+  @else if $width == ipadPro {
+    @media only screen and (max-width: $ipadPro) { @content; }
+  }
+  @else if $width == ipad {
+    @media only screen and (max-width: $ipad) { @content; }
+  }
+  @else if $width == iphonePlus {
+    @media only screen and (max-width: $iphonePlus) { @content; }
+  }
+  @else if $width == iphone {
+    @media only screen and (max-width: $iphone) { @content; }
+  }
+  @else if $width == iphoneSmall {
+    @media only screen and (max-width: $iphoneSmall) { @content; }
+  }
+  // Non-Retina
+  @else if $width == non-retina {
+    @media screen and (-webkit-max-device-pixel-ratio: 1) { @content; }
+  }
+  // Retina Only
+  @else if $width == retina {
+    @media screen and (-webkit-min-device-pixel-ratio: 2) { @content; }
+  }
+  // Retina Only
+  @else if $width == retina3 {
+    @media screen and (-webkit-min-device-pixel-ratio: 3) { @content; }
+  }
+  // Specific max width
+  @else {
+    @media only screen and (max-width: #{$width}px) { @content; }
+  }
+}
+
+.visible-ipad-pro{
+  display: none;
+
+  @include responsive(ipadPro) {
+      display: block !important;
+  }
+}
+
+.visible-ipad{
+  display: none;
+
+  @include responsive(ipad) {
+      display: block !important;
+  }
+}
+
+.visible-iphone{
+  display: none;
+
+  @include responsive(iphone) {
+      display: block !important;
+  }
+}
+
+.visible-iphone-plus{
+  display: none;
+
+  @include responsive(iphonePlus) {
+      display: block !important;
+  }
+}
+
+.visible-iphone-small{
+  display: none;
+
+  @include responsive(iphoneSmall) {
+      display: block !important;
+  }
+}
+
+.hidden-ipad-pro {
+  @include responsive(ipadPro) {
+    display: none !important;
+  }
+}
+
+.hidden-ipad {
+  @include responsive(ipad) {
+    display: none !important;
+  }
+}
+
+.hidden-iphone-plus {
+  @include responsive(iphonePlus) {
+    display: none !important;
+  }
+}
+
+.hidden-iphone {
+  @include responsive(iphone) {
+    display: none !important;
+  }
+}
+
+.hidden-iphone-small {
+  @include responsive(iphoneSmall) {
+    display: none !important;
+  }
+}

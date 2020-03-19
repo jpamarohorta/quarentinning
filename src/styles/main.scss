@@ -1,0 +1,15 @@
+@import "reset.scss";
+
+@import "variables.scss";
+@import "mixins.scss";
+@import "grid.scss";
+@import "text.scss";
+
+@import "defaults.scss";
+
+// Components
+@import "../components/Header/styles.scss";
+@import "../components/RecipeCard/styles.scss";
+
+// Pages
+@import "../pages/Home/styles.scss";
