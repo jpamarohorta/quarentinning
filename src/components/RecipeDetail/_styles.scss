@@ -1,0 +1,20 @@
+.component-recipe-detail {
+  padding: $margin;
+
+  .image {
+    width: 500px;
+  }
+
+  .info-container {
+    padding: $margin / 2;
+    background: $blue;
+
+    .time-and-difficulty {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: $margin / 2;
+    }
+  }
+}
