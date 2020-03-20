@@ -1,44 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
-import Tabletop from 'tabletop'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { actions as recipesActions, selectors as recipesSelectors } from 'store/reducers/recipes'
 
 import RecipeDetail from 'components/RecipeDetail'
 
-const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Ny4rhbJaae-3aXqUl5x7YijQk6uK40nnHxaCqfEcbbw/pubhtml'
-
-const parseRecipes = (data) => (
-  data.slice(1).map((d, index) => ({
-    slug: `${d.name}-${index}`,
-    ...d,
-  }))
-)
-
 const Detail = () => {
-  const { slug } = useParams()
-
-  const [recipes, setRecipes] = useState(null)
   const [recipe, setRecipe] = useState(null)
 
-  useEffect(() => {
-    if (window.recipes) {
-      setRecipes(window.recipes)
-      
-    } else {
-      const callback = (data) => {
-        const parsedData = parseRecipes(data)
-        setRecipes(parsedData)
-        window.recipes = parsedData
-      }
+  const { slug } = useParams()
 
-      Tabletop.init({ key: spreadsheetUrl, callback, simpleSheet: true })
+  const dispatch = useDispatch()
+
+  const recipes = useSelector(recipesSelectors.getRecipes)
+
+  useEffect(() => {
+    if (!recipes) {
+      dispatch(recipesActions.fetchRecipes())
     }
-  }, [])
+  }, [recipes, dispatch])
 
   useEffect(() => {
     if (recipes) {
-      setRecipe(recipes.find((r) => `${r.slug}` === slug))
+      setRecipe(recipes.find((r) => r.slug === slug))
     }
-  }, [recipes])
+  }, [recipes, slug])
 
   return (
     <div className="page-detail">

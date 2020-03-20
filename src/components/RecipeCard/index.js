@@ -3,15 +3,15 @@ import React from 'react'
 const RecipeCard = ({ recipe }) => {
   return (
     <div className="component-recipe-card">
-      <div className="image" style={{backgroundImage: `url(${recipe['photo']})`}}></div>
+      <div className="image" style={{backgroundImage: `url(${recipe.imageUrl})`}}></div>
 
       <div className="info-container">
-        <h4>{recipe['name']}</h4>
+        <h4>{recipe.name}</h4>
 
         <div className="time-and-difficulty">
-          <p>{recipe['time']} min</p>
+          <p>{recipe.time} min</p>
 
-          <p>{recipe['difficulty']}</p>
+          <p>{recipe.difficulty}</p>
         </div>
       </div>
     </div>

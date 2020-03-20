@@ -1,31 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom"
-import Tabletop from 'tabletop'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { actions as recipesActions, selectors as recipesSelectors } from 'store/reducers/recipes'
 
 import RecipeCard from 'components/RecipeCard'
 
-const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Ny4rhbJaae-3aXqUl5x7YijQk6uK40nnHxaCqfEcbbw/pubhtml'
-
-const parseRecipes = (data) => (
-  data.slice(1).map((d, index) => ({
-    slug: `${d.name}-${index}`,
-    ...d,
-  }))
-)
-
 const Home = () => {
-  const [recipes, setRecipes] = useState(null)
+  const dispatch = useDispatch()
+
+  const recipes = useSelector(recipesSelectors.getRecipes)
 
   useEffect(() => {
-    const callback = (data) => {
-      console.log('DATA', data)
-      const parsedData = parseRecipes(data)
-      setRecipes(parsedData)
-      window.recipes = parsedData
+    if (!recipes) {
+      dispatch(recipesActions.fetchRecipes())
     }
-
-    Tabletop.init({ key: spreadsheetUrl, callback, simpleSheet: true })
-  }, [])
+  }, [recipes, dispatch])
 
   return (
     <div className="page-home">
