@@ -1,20 +1,29 @@
 .component-recipe-detail {
-  padding: $margin;
+  padding: 0 $margin;
 
   .image {
-    width: 500px;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
   }
 
   .info-container {
-    padding: $margin / 2;
-    background: $blue;
+    min-height: calc(100vh - 192px - 300px);
+    box-sizing: border-box;
+    padding: $margin / 2 $margin $margin $margin;
+    background: $grey;
 
-    .time-and-difficulty {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: $margin / 2;
+    h1 {
+      margin-bottom: $margin;
+    }
+
+    h4 {
+      margin-bottom:  $margin / 2;
+    }
+
+    .ingredients-container, .steps-container, .time-container, .difficulty-container {
+      margin-bottom: $margin;
     }
   }
 }

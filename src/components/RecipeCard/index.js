@@ -2,7 +2,8 @@ import React from 'react'
 
 const RecipeCard = ({ recipe }) => {
   return (
-    <div className="component-recipe-card">
+
+    <div className="uk-card uk-card-default uk-card-body component-recipe-card">
       <div className="image" style={{backgroundImage: `url(${recipe.imageUrl})`}}></div>
 
       <div className="info-container">

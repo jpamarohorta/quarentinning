@@ -3,18 +3,32 @@ import React from 'react'
 const RecipeDetail = ({ recipe }) => {
   return (
     <div className="component-recipe-detail">
-      <img className="image" src={recipe.imageUrl} />
+      <div className="image" style={{backgroundImage: `url(${recipe.imageUrl})`}}></div>
 
       <div className="info-container">
-        <h4>{recipe.name}</h4>
+        <h1>{recipe.name}</h1>
 
-        <p>{recipe.ingredients}</p>
+        <div className="ingredients-container">
+          <h4>Ingredientes</h4>
+          { recipe.ingredients.split('\n').map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
 
-        <p>{recipe.steps}</p>
+        <div className="steps-container">
+          <h4>Passos</h4>
+          { recipe.steps.split('\n').map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
 
-        <div className="time-and-difficulty">
+        <div className="time-container">
+          <h4>Tempo aproximado de confeção</h4>
           <p>{recipe.time} min</p>
+        </div>
 
+        <div className="difficulty-container">
+          <h4>Dificuldade</h4>
           <p>{recipe.difficulty}</p>
         </div>
       </div>

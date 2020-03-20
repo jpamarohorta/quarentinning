@@ -28,7 +28,7 @@ const Detail = () => {
   }, [recipes, slug])
 
   return (
-    <div className="page-detail">
+    <div className="page-detail uk-container">
       { recipe ?
         <div className="content">
           <RecipeDetail recipe={recipe} />

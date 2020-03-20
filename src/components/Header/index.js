@@ -10,7 +10,7 @@ const Header = () => {
       </div>
 
       <div className="title-container">
-        <h1>Quarentinning</h1>
+        <h1>À Mesa com o Covid</h1>
       </div>
     </div>
   )

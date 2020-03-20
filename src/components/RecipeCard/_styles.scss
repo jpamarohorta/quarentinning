@@ -1,15 +1,17 @@
 .component-recipe-card {
   padding: $margin;
+  margin-bottom: $margin;
 
   .image {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 150px;
     background-size: cover;
+    background-position: center center;
   }
 
   .info-container {
-    padding: $margin / 2;
-    background: $blue;
+    padding-top: $margin / 2;
+    text-align: left;
 
     .time-and-difficulty {
       display: flex;
