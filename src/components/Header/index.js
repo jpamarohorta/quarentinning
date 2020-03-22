@@ -9,7 +9,9 @@ const Header = () => {
   return (
     <div className={classes}>
       <Link to="/" className="link">Explorar</Link>
-      <a className="link" href="https://forms.gle/rFxbCHLjAwBRRTxX9" target="_blank">Contribuir</a>
+      <a className="link" href="https://forms.gle/rFxbCHLjAwBRRTxX9" target="_blank" rel="noopener noreferrer">
+        Contribuir
+      </a>
     </div>
   )
 }

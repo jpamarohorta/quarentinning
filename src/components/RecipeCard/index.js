@@ -10,7 +10,7 @@ const RecipeCard = ({ recipe }) => {
         <h4>{recipe.name}</h4>
 
         <div className="time-and-difficulty">
-          <p>{recipe.time} min</p>
+          <p>{recipe.time}</p>
 
           <p>{recipe.difficulty}</p>
         </div>

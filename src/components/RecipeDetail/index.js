@@ -7,7 +7,7 @@ const RecipeDetail = ({ recipe }) => {
 
       <div className="time-container">
         <p className="label">Tempo</p>
-        <p className="value">{recipe.time} min</p>
+        <p className="value">{recipe.time}</p>
       </div>
 
       <div className="difficulty-container">

@@ -1,5 +1,6 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import Home from 'pages/Home'
 import Detail from 'pages/Detail'
@@ -13,21 +14,34 @@ const App = () => {
      <Router>
       <div className="app-container">
         <Header />
-
-        <div className="main-container">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route path="/recipes/:slug">
-              <Detail />
-            </Route>
-          </Switch>
-        </div>
+        <AppAnimated />
       </div>
     </Router>
   );
+}
+
+const AppAnimated = () => {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return (
+    <TransitionGroup>
+      <CSSTransition key={pathname} classNames="fade" timeout={300}>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+
+          <Route path="/recipes/:slug">
+            <Detail />
+          </Route>
+        </Switch>
+      </CSSTransition>
+    </TransitionGroup>
+  )
 }
 
 export default App;
