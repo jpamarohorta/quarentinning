@@ -1,6 +1,5 @@
 .component-recipe-card {
   width: 292px;
-  margin-bottom: $margin;
 
   .image {
     width: 100%;
@@ -38,5 +37,9 @@
         }
       }
     }
+  }
+
+  @include responsive(iphonePlus) {
+    width: calc(100vw - 32px);
   }
 }

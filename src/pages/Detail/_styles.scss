@@ -17,4 +17,15 @@
     min-height: calc(100vh - 400px);
     background: $white;
   }
+
+  @include responsive(iphonePlus) {
+    .image, .empty-image {
+      height: $margin * 15;
+    }
+
+    .content-container {
+      padding: $margin * 1.5 0;
+      min-height: calc(100vh - 296px);
+    }
+  }
 }
