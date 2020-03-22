@@ -15,6 +15,8 @@ const RecipeCard = ({ recipe }) => {
           <p>{recipe.difficulty}</p>
         </div>
       </div>
+
+      <div className="backdrop"></div>
     </div>
   )
 }

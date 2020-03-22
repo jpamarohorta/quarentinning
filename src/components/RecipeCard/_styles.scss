@@ -1,5 +1,9 @@
 .component-recipe-card {
   width: 292px;
+  position: relative;
+  box-shadow: -1px 1px 5px 1px rgba(130,130,130,0.05);
+  -webkit-box-shadow: -1px 1px 5px 1px rgba(130,130,130,0.05);
+  -moz-box-shadow: -1px 1px 5px 1px rgba(130,130,130,0.05);
 
   .image {
     width: 100%;
@@ -36,6 +40,23 @@
           margin-bottom: 4px;
         }
       }
+    }
+  }
+
+  .backdrop {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(130,130,130,0.05);
+    transition: opacity ease-in-out 150ms; 
+  }
+
+  &:hover {
+    .backdrop {
+      opacity: 1;
     }
   }
 
