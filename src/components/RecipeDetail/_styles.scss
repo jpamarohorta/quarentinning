@@ -1,28 +1,35 @@
 .component-recipe-detail {
   padding: 0 $margin;
 
-  .image {
-    width: 100%;
-    height: 300px;
-    background-size: cover;
-    background-position: center center;
+  h1 {
+    margin-bottom: $margin;
   }
 
-  .info-container {
-    min-height: calc(100vh - 192px - 300px);
-    box-sizing: border-box;
-    padding: $margin / 2 $margin $margin $margin;
-    background: $grey;
+  .time-container, .difficulty-container {
+    display: flex;
+    flex-direction: row;
 
-    h1 {
-      margin-bottom: $margin;
+    .label {
+      margin-right: $margin / 2;
     }
+
+    .value {
+      color: $grey;
+    }
+
+    &:first-of-type {
+      margin-bottom: 4px;
+    }
+  }
+
+  .ingredients-container, .steps-container {
+    margin-top: $margin * 3;
 
     h4 {
-      margin-bottom:  $margin / 2;
-    }
-
-    .ingredients-container, .steps-container, .time-container, .difficulty-container {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 24px;
+      line-height: 28px;
+      color: $black;
       margin-bottom: $margin;
     }
   }

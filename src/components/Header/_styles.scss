@@ -1,23 +1,25 @@
 .component-header {
-  background: $orange;
-  height: $margin * 12;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $white;
+  width: 100vw;
+  height: $margin * 3.5;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-  .menu {
-    padding: $margin;
-
-    .menu-item {
-      font-size: 18px;
-      margin-right: 16px;
-    }
+  a.link {
+    padding: 0 $margin * 1.5;
+    color: $red;
   }
 
-  .title-container {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  &.transparent {
+    background: transparent;
+
+    a.link {
+      color: $white;
+    }
   }
 }

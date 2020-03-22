@@ -2,10 +2,13 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import FlexSearch from 'flexsearch'
+import Spinner from 'react-spinkit'
 
 import { actions as recipesActions, selectors as recipesSelectors } from 'store/reducers/recipes'
 
 import RecipeCard from 'components/RecipeCard'
+
+const bannerImage = require('images/egg.jpg')
 
 const Home = () => {
   const [searchIndex, setSearchIndex] = useState(null)
@@ -51,7 +54,6 @@ const Home = () => {
   useEffect(() => {
     if (searchValue.length > 2) {
       const matches = searchIndex.search(searchValue.toLowerCase())
-      console.log('MATCHES', matches)
       setFilteredRecipes(matches)
     } else if (searchValue.length === 0) {
       setFilteredRecipes(recipes)
@@ -59,34 +61,36 @@ const Home = () => {
   }, [searchValue, searchIndex])
 
   return (
-    <div className="page-home uk-container">
-      { filteredRecipes ?
-        <div className="content">
-          <form className="uk-search uk-search-default search-container">
-            <input
-              className="uk-search-input"
-              type="text"
-              placeholder="Procura por nome ou ingrientes..."
-              value={searchValue}
-              onChange={handleSearchValueChange} />
-          </form>
+    <div className="page-home">
+      <div className="banner" style={{backgroundImage: `url(${bannerImage})`}}>
+        <h1>À Mesa com o Covid</h1>
+      </div>
+      
+      <div className="content-container">
+        { filteredRecipes ?
+          <div className="content uk-container">
+            <form className="search-container">
+              <input
+                type="text"
+                placeholder="Procura por nome ou ingrientes..."
+                value={searchValue}
+                onChange={handleSearchValueChange} />
+            </form>
 
-          <div className="uk-grid">
-            { filteredRecipes.map((recipe, index) => (
-              <Link to={`recipes/${recipe.slug}`} key={index} className="recipe">
-                <RecipeCard recipe={recipe} key={index} />
-              </Link>
-            ))}
+            <div className="recipes-grid">
+              { filteredRecipes.map((recipe, index) => (
+                <Link to={`recipes/${recipe.slug}`} key={index} className="recipe">
+                  <RecipeCard recipe={recipe} key={index} />
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-        :
-        <div className="loading">
-          <div className="sk-bounce">
-            <div className="sk-bounce-dot"></div>
-            <div className="sk-bounce-dot"></div>
+          :
+          <div className="loading">
+            <Spinner name="double-bounce" color="#F60118" />
           </div>
-        </div>
-      }
+        }
+      </div>
     </div>
   )
 }

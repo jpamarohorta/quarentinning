@@ -1,0 +1,20 @@
+.page-detail {
+  .image {
+    width: 100vw;
+    height: $margin * 25;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .empty-image {
+    widows: 100vw;
+    height: 363px;
+    background: #FFFFFF;
+  }
+
+  .content-container {
+    padding: $margin * 4 0;
+    min-height: calc(100vh - 400px);
+    background: $white;
+  }
+}
