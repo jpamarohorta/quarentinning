@@ -1,4 +1,5 @@
 import React from 'react'
+import Truncate from 'react-truncate'
 
 const RecipeCard = ({ recipe }) => {
   return (
@@ -7,10 +8,18 @@ const RecipeCard = ({ recipe }) => {
       <div className="image" style={{backgroundImage: `url(${recipe.imageUrl})`}}></div>
 
       <div className="info-container">
-        <h4>{recipe.name}</h4>
+        <h4>
+          <Truncate lines={2} ellipsis={<span>...</span>}>
+            {recipe.name}
+          </Truncate>
+        </h4>
 
         <div className="time-and-difficulty">
-          <p>{recipe.time}</p>
+          <p>
+            <Truncate lines={1} ellipsis={<span>...</span>}>
+              {recipe.time}
+            </Truncate>
+          </p>
 
           <p>{recipe.difficulty}</p>
         </div>

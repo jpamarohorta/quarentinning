@@ -15,6 +15,11 @@ const RecipeDetail = ({ recipe }) => {
         <p className="value">{recipe.difficulty}</p>
       </div>
 
+      <div className="people-container">
+        <h4>Pessoas</h4>
+        <p>{recipe.people}</p>
+      </div>
+
       <div className="ingredients-container">
         <h4>Ingredientes</h4>
         { recipe.ingredients.split('\n').map((p, index) => (
@@ -27,6 +32,11 @@ const RecipeDetail = ({ recipe }) => {
         { recipe.steps.split('\n').map((p, index) => (
           <p key={index}>{p}</p>
         ))}
+      </div>
+
+      <div className="chef-container">
+        <h4>Chef</h4>
+        <p>{recipe.chef}</p>
       </div>
     </div>
   )
