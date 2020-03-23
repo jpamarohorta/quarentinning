@@ -24,4 +24,16 @@
       color: $white;
     }
   }
+
+  @include responsive(iphonePlus) {
+    a.link {
+      font-size: 21px;
+    }
+  }
+
+  @include responsive(iphoneSmall) {
+    a.link {
+      font-size: 16px;
+    }
+  }
 }

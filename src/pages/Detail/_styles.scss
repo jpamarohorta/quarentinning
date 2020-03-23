@@ -1,14 +1,14 @@
 .page-detail {
   .image {
     width: 100vw;
-    height: $margin * 25;
+    height: $margin * 38;
     background-position: center;
     background-size: cover;
   }
 
   .empty-image {
-    widows: 100vw;
-    height: 363px;
+    width: 100vw;
+    height: $margin * 38;
     background: #FFFFFF;
   }
 

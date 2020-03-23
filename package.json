@@ -9,6 +9,7 @@
     "elasticlunr": "git+https://github.com/weixsong/elasticlunr.js.git#v0.9.6",
     "flexsearch": "^0.6.32",
     "immer": "^6.0.2",
+    "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

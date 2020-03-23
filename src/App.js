@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import Home from 'pages/Home'
 import Detail from 'pages/Detail'
+import Top from 'pages/Top'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -39,6 +40,10 @@ const AppAnimated = () => {
 
           <Route path="/recipes/:slug">
             <Detail />
+          </Route>
+
+          <Route path="/top">
+            <Top />
           </Route>
         </Switch>
       </CSSTransition>

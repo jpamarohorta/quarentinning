@@ -9,12 +9,12 @@ const Footer = () => {
       </div>
 
       <div className="info-container">
-        <p className="label">Design</p>
+        <p className="label">Desenho</p>
         <a href="/" target="_blank" rel="noopener noreferrer" className="value">Ana</a>
       </div>
 
       <div className="info-container">
-        <p className="label">Implementação</p>
+        <p className="label">Código</p>
         <a href="https://twitter.com/jpahorta" target="_blank" rel="noopener noreferrer" className="value">João</a>
       </div>
     </div>

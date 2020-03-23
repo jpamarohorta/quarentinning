@@ -1,0 +1,14 @@
+.component-chef-card {
+  width: 100%;
+  box-shadow: -1px 1px 5px 1px rgba(130,130,130,0.05);
+  -webkit-box-shadow: -1px 1px 5px 1px rgba(130,130,130,0.05);
+  -moz-box-shadow: -1px 1px 5px 1px rgba(130,130,130,0.05);
+  margin-bottom: $margin;
+  box-sizing: border-box;
+  padding: $margin * 1.5 $margin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: #FFFFFF;
+}
