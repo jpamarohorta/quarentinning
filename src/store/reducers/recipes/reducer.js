@@ -14,10 +14,11 @@ const parseRecipes = (data) => (
     .slice(1)
     .filter((d) => d.approved === 'yes')
     .map((d, index) => ({
-    ...d,
-    slug: `${d.name.replace(/ /g,"-")}-${index}`,
-    imageUrl: `https://drive.google.com/uc?id=${d.image_url.match(/id=(.*)/)[1]}`,
-  }))
+      ...d,
+      slug: `${d.name.replace(/ /g,"-")}-${index}`,
+        imageUrl: `https://drive.google.com/uc?id=${d.image_url.match(/id=(.*)/)[1]}`,
+    }))
+    .reverse()
 )
 
 const reducer = (state = initialState, action = {}) => {
