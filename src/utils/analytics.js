@@ -12,6 +12,10 @@ export const logRecipeClicked = (slug) => {
   logEvent('recipe_clicked', { slug })
 }
 
+export const logSubmitClicked = () => {
+  logEvent('submit_clicked')
+}
+
 export const logJaimeClicked = () => {
   logEvent('jaime_clicked')
 }

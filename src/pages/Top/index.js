@@ -24,7 +24,7 @@ const sortRecipesByChef = (recipes) => {
     name: c, recipes: chefsObject[c]
   }))
 
-  return orderBy(chefsArray, [(c) => c.recipes.length], ['desc'])
+  return orderBy(chefsArray, [(c) => c.recipes.length], ['desc']).slice(0,6)
 }
 
 const Top = () => {
@@ -45,8 +45,6 @@ const Top = () => {
       setChefs(sortRecipesByChef(recipes))
     }
   }, [recipes])
-
-  console.log('CHEFS', chefs)
 
   return (
     <div className="page-top">

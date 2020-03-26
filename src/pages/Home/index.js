@@ -10,7 +10,7 @@ import { actions as recipesActions, selectors as recipesSelectors } from 'store/
 
 import RecipeCard from 'components/RecipeCard'
 
-import { logSearch, logRecipeClicked } from 'utils/analytics'
+import { logSearch, logRecipeClicked, logSubmitClicked } from 'utils/analytics'
 
 const bannerImage = require('images/egg.jpg')
 
@@ -30,6 +30,10 @@ const Home = () => {
 
   const handleRecipeClicked = useCallback((slug) => {
     logRecipeClicked({ slug })
+  }, [])
+
+  const handleSubmitClick = useCallback(() => {
+    logSubmitClicked()
   }, [])
 
   useEffect(() => {
@@ -67,7 +71,7 @@ const Home = () => {
     } else if (searchValue.length === 0) {
       setFilteredRecipes(recipes)
     }
-  }, [searchValue, searchIndex])
+  }, [searchValue, searchIndex, recipes])
 
   useEffect(() => {
     if (debouncedSearchValue && debouncedSearchValue.length > 0) {
@@ -82,6 +86,26 @@ const Home = () => {
       </div>
       
       <div className="content-container">
+        <div className="intro-container uk-container">
+          <h1>Não são as receitas que queríamos,</h1>
+          <h1>mas as receitas possíveis.</h1>
+
+          <div className="description-container">
+            <p>Uma lista de pequenas-grandes receitas, feitas com o que nos resta na dispensa, pouca arte e muito engenho. Acreditamos que existe um chef escondido em cada um de nós e está na hora de lhe dar voz.</p>
+          </div>
+
+          <div className="submit-container">
+            <p className="submit-title">Envia-nos a tua receita</p>
+
+            <a
+              className="link"
+              href="https://forms.gle/rFxbCHLjAwBRRTxX9"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleSubmitClick}>Submeter Receita</a>
+          </div>
+        </div>
+
         { filteredRecipes ?
           <div className="content uk-container">
             <form className="search-container">

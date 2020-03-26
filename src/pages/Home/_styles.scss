@@ -19,8 +19,35 @@
     padding: $margin * 4 0;
     background: $white;
 
+    .intro-container {
+      text-align: center;
+
+      h1 {
+        color: $red;
+      }
+
+      .description-container {
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: $margin * 2;
+      }
+
+      .submit-container {
+        margin-top: $margin * 2;
+
+        p {
+          margin-bottom: $margin;
+        }
+
+        .link {
+          color: $red;
+        }
+      }
+    }
+
     .search-container {
       width: 100%;
+      margin-top: $margin * 4;
       margin-bottom: $margin * 3;
 
       input {
@@ -66,6 +93,13 @@
 
     .content-container {
       padding: $margin * 1.5 0;
+
+      .intro-container {
+        h1 {
+          font-size: 45px;
+          line-height: 55px;
+        }
+      }
 
       .search-container {
         margin-bottom: $margin * 1.5;
