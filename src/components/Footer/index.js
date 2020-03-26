@@ -29,7 +29,12 @@ const Footer = () => {
 
       <div className="info-container">
         <p className="label">Desenho</p>
-        <a href="/" target="_blank" rel="noopener noreferrer" className="value" onClick={handleAnaClick}>Ana</a>
+        <a
+          href="https://www.instagram.com/_____anarodrigues"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="value"
+          onClick={handleAnaClick}>Ana</a>
       </div>
 
       <div className="info-container">

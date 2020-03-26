@@ -96,12 +96,21 @@
 
       .intro-container {
         h1 {
-          font-size: 45px;
-          line-height: 55px;
+          font-size: 29px;
+          line-height: 34px;
+        }
+
+        .description-container {
+          margin-top: $margin;
+        }
+
+        .submit-container {
+          margin-top: $margin;
         }
       }
 
       .search-container {
+        margin-top: $margin * 2;
         margin-bottom: $margin * 1.5;
       }
 
