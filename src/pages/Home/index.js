@@ -72,7 +72,7 @@ const Home = () => {
             <form className="search-container">
               <input
                 type="text"
-                placeholder="Procura por nome ou ingrientes..."
+                placeholder="Procura por nome ou ingredientes..."
                 value={searchValue}
                 onChange={handleSearchValueChange} />
             </form>

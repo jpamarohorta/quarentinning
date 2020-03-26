@@ -16,7 +16,7 @@ const parseRecipes = (data) => (
     .map((d, index) => ({
       ...d,
       slug: `${d.name.replace(/ /g,"-")}-${index}`,
-        imageUrl: `https://drive.google.com/uc?id=${d.image_url.match(/id=(.*)/)[1]}`,
+      imageUrl: d.image_url,
     }))
     .reverse()
 )
