@@ -4,9 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import FlexSearch from 'flexsearch'
 import Spinner from 'react-spinkit'
 
+import { useDebounce } from 'hooks/debounce'
+
 import { actions as recipesActions, selectors as recipesSelectors } from 'store/reducers/recipes'
 
 import RecipeCard from 'components/RecipeCard'
+
+import { logSearch, logRecipeClicked } from 'utils/analytics'
 
 const bannerImage = require('images/egg.jpg')
 
@@ -14,6 +18,7 @@ const Home = () => {
   const [searchIndex, setSearchIndex] = useState(null)
   const [searchValue, setSearchValue] = useState('')
   const [filteredRecipes, setFilteredRecipes] = useState(null)
+  const debouncedSearchValue = useDebounce(searchValue, 1000);
 
   const dispatch = useDispatch()
 
@@ -21,6 +26,10 @@ const Home = () => {
 
   const handleSearchValueChange = useCallback((event) => {
     setSearchValue(event.target.value)
+  }, [])
+
+  const handleRecipeClicked = useCallback((slug) => {
+    logRecipeClicked({ slug })
   }, [])
 
   useEffect(() => {
@@ -60,6 +69,12 @@ const Home = () => {
     }
   }, [searchValue, searchIndex])
 
+  useEffect(() => {
+    if (debouncedSearchValue && debouncedSearchValue.length > 0) {
+      logSearch(debouncedSearchValue)
+    }
+  }, [debouncedSearchValue])
+
   return (
     <div className="page-home">
       <div className="banner" style={{backgroundImage: `url(${bannerImage})`}}>
@@ -79,7 +94,11 @@ const Home = () => {
 
             <div className="recipes-grid">
               { filteredRecipes.map((recipe, index) => (
-                <Link to={`recipes/${recipe.slug}`} key={index} className="recipe">
+                <Link
+                  to={`recipes/${recipe.slug}`}
+                  key={index}
+                  className="recipe"
+                  onClick={() => handleRecipeClicked(recipe.slug)}>
                   <RecipeCard recipe={recipe} key={index} />
                 </Link>
               ))}

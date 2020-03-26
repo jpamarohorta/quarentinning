@@ -63,8 +63,8 @@ const Top = () => {
           <div className="content-container">
             <div className="content uk-container">
               <div className="chefs-list">
-                { chefs.slice(1).map((chef) => (
-                  <ChefCard chef={chef} />
+                { chefs.slice(1).map((chef, index) => (
+                  <ChefCard chef={chef} key={index} />
                 ))}
               </div>
             </div>
