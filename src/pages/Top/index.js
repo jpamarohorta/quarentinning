@@ -60,7 +60,11 @@ const Top = () => {
           <div className="top-chef">
             <div className="top-chef-info uk-container">
               <h4>O Top Chef atual é</h4>
-              <h1>{chefs[0].name}</h1>
+              <Link
+                to={`chefs/${chefs[0].slug}`}
+                onClick={() => handleRecipeClicked(chefs[0].slug)}>
+                <h1>{chefs[0].name}</h1>
+              </Link>
               <h4>{`${chefs[0].recipes.length} ${chefs[0].recipes.length === 1 ? 'receita' : 'receitas'}`}</h4>
             </div>
           </div>
@@ -73,7 +77,7 @@ const Top = () => {
                     to={`chefs/${chef.slug}`}
                     key={index}
                     onClick={() => handleRecipeClicked(chef.slug)}>
-                    <ChefCard chef={chef} key={index} />
+                    <ChefCard chef={chef} />
                   </Link>
                 ))}
               </div>
