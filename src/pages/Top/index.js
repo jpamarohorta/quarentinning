@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import Spinner from 'react-spinkit'
 import { orderBy } from 'lodash'
@@ -6,6 +7,8 @@ import { orderBy } from 'lodash'
 import { actions as recipesActions, selectors as recipesSelectors } from 'store/reducers/recipes'
 
 import ChefCard from 'components/ChefCard'
+
+import { logChefClicked } from 'utils/analytics'
 
 const sortRecipesByChef = (recipes) => {
   let chefsObject = {}
@@ -21,10 +24,10 @@ const sortRecipesByChef = (recipes) => {
   })
 
   const chefsArray = Object.keys(chefsObject).map((c) => ({
-    name: c, recipes: chefsObject[c]
+    name: c, slug: c.replace(/ /g,"-"), recipes: chefsObject[c]
   }))
 
-  return orderBy(chefsArray, [(c) => c.recipes.length], ['desc']).slice(0,6)
+  return orderBy(chefsArray, [(c) => c.recipes.length], ['desc'])
 }
 
 const Top = () => {
@@ -33,6 +36,10 @@ const Top = () => {
   const dispatch = useDispatch()
 
   const recipes = useSelector(recipesSelectors.getRecipes)
+
+  const handleRecipeClicked = useCallback((slug) => {
+    logChefClicked({ slug })
+  }, [])
 
   useEffect(() => {
     if (!recipes) {
@@ -62,7 +69,12 @@ const Top = () => {
             <div className="content uk-container">
               <div className="chefs-list">
                 { chefs.slice(1).map((chef, index) => (
-                  <ChefCard chef={chef} key={index} />
+                  <Link
+                    to={`chefs/${chef.slug}`}
+                    key={index}
+                    onClick={() => handleRecipeClicked(chef.slug)}>
+                    <ChefCard chef={chef} key={index} />
+                  </Link>
                 ))}
               </div>
             </div>

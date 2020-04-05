@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import FlexSearch from 'flexsearch'
 import Spinner from 'react-spinkit'
@@ -29,7 +29,7 @@ const Home = () => {
   }, [])
 
   const handleRecipeClicked = useCallback((slug) => {
-    logRecipeClicked({ slug })
+    logRecipeClicked(slug)
   }, [])
 
   const handleSubmitClick = useCallback(() => {

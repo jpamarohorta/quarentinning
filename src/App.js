@@ -7,6 +7,7 @@ import 'firebase/analytics'
 import Home from 'pages/Home'
 import Detail from 'pages/Detail'
 import Top from 'pages/Top'
+import Chef from 'pages/Chef'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -61,6 +62,10 @@ const AppAnimated = () => {
 
           <Route path="/top">
             <Top />
+          </Route>
+
+          <Route path="/chefs/:slug">
+            <Chef />
           </Route>
         </Switch>
       </CSSTransition>

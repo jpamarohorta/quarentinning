@@ -36,6 +36,10 @@ export const logTopChefClicked = () => {
   logEvent('top_chef_clicked')
 }
 
+export const logChefClicked = (slug) => {
+  logEvent('chef_clicked', { slug })
+}
+
 export const logContributeClicked = () => {
   logEvent('contribute_clicked')
 }
