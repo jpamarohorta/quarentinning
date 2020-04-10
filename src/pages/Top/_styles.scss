@@ -1,40 +1,84 @@
 .page-top {
   min-height: 100vh;
 
-  h4 {
-    font-family: 'Helvetica', sans-serif;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
-  }
-
   .top-chef {
     width: 100vw;
-    height: $margin * 38;
+    height: $margin * 22;
     background: $red;
 
     .top-chef-info {
-      text-align: left;
+      text-align: center;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       padding-top: 28px;
     }
 
-    h1, h4 {
+    a.top-chef-name {
+      margin-top: $margin / 2; 
+    }
+
+    h1, p {
       color: $white;
+    }
+
+    h1 {
+      padding-bottom: $margin / 2;
+      margin-bottom: $margin / 2;
+      border-bottom: solid 1px $white;
     }
   }
 
   .content-container {
     min-height: calc(100vh - 400px);
+    padding-top: $margin * 3;
     background: $white;
 
-    .chefs-list {
-      padding: $margin * 4 0;
+    .discover-section {
+      margin-bottom: $margin * 4.5;
+
+      .discover-section-header {
+        text-align: center;
+
+        h4 {
+          @extend .title2;
+          margin-bottom: 2px;
+        }
+      }
+
+      .discover-recipe-list {
+        margin-top: $margin * 2.5;
+
+        .BrainhubCarousel {
+          overflow: visible;
+
+          .BrainhubCarousel__trackContainer {
+            overflow: visible;
+
+            .BrainhubCarouselItem:first-of-type {
+              padding-left: 0 !important;
+            }
+          }
+        }
+      }
     }
+
+    .chefs-section {
+      .chefs-section-header {
+        text-align: center;
+
+        h4 {
+          @extend .title2;
+          margin-bottom: 2px;
+        }
+      }
+
+      .chefs-list {
+        padding: $margin * 2.5 0;
+      }
+    }    
   }
 
   .loading {
