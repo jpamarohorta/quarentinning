@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import Spinner from 'react-spinkit'
 import { orderBy } from 'lodash'
 import Carousel from '@brainhubeu/react-carousel'
+
+import { useWindowSize } from 'hooks/window'
 
 import { actions as recipesActions, selectors as recipesSelectors } from 'store/reducers/recipes'
 
@@ -41,6 +43,22 @@ const Top = () => {
   const dispatch = useDispatch()
 
   const recipes = useSelector(recipesSelectors.getRecipes)
+
+  const windowSize = useWindowSize()
+
+  const carouselCardNumber = useMemo(() => {
+    const width = windowSize.width
+
+    if (width > 1366) {
+      return 4
+    } else if (width > 1024) {
+      return 3
+    } else if (width > 414) {
+      return 2
+    } else {
+      return 1
+    }
+  }, [windowSize])
 
   const handleChefClicked = useCallback((slug) => {
     logChefClicked({ slug })
@@ -90,7 +108,7 @@ const Top = () => {
                 </div>
 
                 <div className="discover-recipe-list">
-                  <Carousel slidesPerPage={4} offset={32} animationSpeed={250}>
+                  <Carousel slidesPerPage={carouselCardNumber} offset={32} animationSpeed={250} >
                     { topChefRecipes?.map((recipe, index) => (
                       <Link
                         to={`/recipes/${recipe.slug}`}

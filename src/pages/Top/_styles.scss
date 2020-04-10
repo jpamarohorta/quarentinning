@@ -57,6 +57,10 @@
           .BrainhubCarousel__trackContainer {
             overflow: visible;
 
+            .BrainhubCarouselItem {
+              width: 292px !important;
+            }
+
             .BrainhubCarouselItem:first-of-type {
               padding-left: 0 !important;
             }
@@ -86,5 +90,25 @@
     flex-direction: column;
     align-items: center;
     padding-top: $margin * 3.5;
+  }
+
+  @include responsive(iphonePlus) {
+    .content-container {
+      .discover-section {
+        .discover-recipe-list {
+          .BrainhubCarousel {
+            overflow: hidden;
+
+            .BrainhubCarousel__trackContainer {
+              overflow: hidden;
+
+              .BrainhubCarouselItem {
+                // width: calc(100vw - 32px) !important;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
