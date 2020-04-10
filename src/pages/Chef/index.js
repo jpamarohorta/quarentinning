@@ -39,6 +39,13 @@ const Chef = () => {
     <div className="page-chef">
       <div className="chef-header">
         <div className="chef-header-info uk-container">
+          <p>Descubra todas as receitas de</p>
+          <h1>{chef}</h1>
+          { chefRecipes &&
+            <p>{`${chefRecipes.length} ${chefRecipes.length === 1 ? 'receita' : 'receitas'}`}</p>
+          }
+        </div>
+        <div className="chef-header-info uk-container">
           <h4>Receitas do Chef</h4>
           <h1>{chef}</h1>
         </div>

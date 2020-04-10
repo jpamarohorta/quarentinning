@@ -10,21 +10,28 @@
 
   .chef-header {
     width: 100vw;
-    height: $margin * 38;
+    height: $margin * 22;
     background: $red;
 
     .chef-header-info {
-      text-align: left;
+      text-align: center;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       padding-top: 28px;
     }
 
-    h1, h4 {
+    h1, p {
       color: $white;
+    }
+
+    h1 {
+      padding-bottom: $margin / 2;
+      margin-top: $margin / 2; 
+      margin-bottom: $margin / 2;
+      border-bottom: solid 1px $white;
     }
   }
 

@@ -107,7 +107,7 @@ const Top = () => {
               <div className="chefs-section">
                 <div className="chefs-section-header">
                   <h4>Todos os chefs</h4>
-                  <p>Conheça todos os chefs têm contribuído para este projecto</p>
+                  <p>Conheça os chefs que têm contribuído para este projecto</p>
                 </div>
                 <div className="chefs-list">
                   { chefs.slice(1).map((chef, index) => (
