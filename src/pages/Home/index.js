@@ -87,11 +87,12 @@ const Home = () => {
       
       <div className="content-container">
         <div className="intro-container uk-container">
-          <h1>Não são as receitas que queríamos,</h1>
-          <h1>mas as receitas possíveis.</h1>
+          <h1>As receitas da quarentena</h1>
 
           <div className="description-container">
-            <p>Uma lista de pequenas-grandes receitas, feitas com o que nos resta na dispensa, pouca arte e muito engenho. Acreditamos que existe um chef escondido em cada um de nós e está na hora de lhe dar voz.</p>
+            <p>O covid chegou, fechou-nos em casa e tem trazido ao de cima o chefe escondido em cada um de nós.</p>
+            <p>Esta é a essência do "À Mesa com o Covid".</p>
+            <p>Um site para guardar e partilhar as receitas que temos feito neste período.</p>
           </div>
 
           <div className="submit-container">

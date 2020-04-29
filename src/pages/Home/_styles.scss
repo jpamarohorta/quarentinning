@@ -1,7 +1,7 @@
 .page-home {
   .banner {
     width: 100vw;
-    height: 100vh;
+    height: 70vh;
     background-position: center;
     background-size: cover;
     display: flex;
@@ -27,9 +27,14 @@
       }
 
       .description-container {
-        max-width: 800px;
+        max-width: 850px;
         margin: 0 auto;
         margin-top: $margin * 2;
+
+        p {
+          font-size: 18px;
+          margin-top: $margin / 2;
+        }
       }
 
       .submit-container {
