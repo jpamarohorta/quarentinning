@@ -11,7 +11,7 @@
     "firebase": "^7.12.0",
     "flexsearch": "^0.6.32",
     "immer": "^6.0.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
