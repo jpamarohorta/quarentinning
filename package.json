@@ -12,7 +12,7 @@
     "flexsearch": "^0.6.32",
     "immer": "^6.0.2",
     "lodash": "^4.17.15",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
